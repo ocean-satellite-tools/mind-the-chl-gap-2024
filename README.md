@@ -22,14 +22,15 @@ Chlorophyll is a key indicator of marine productivity and the health of ocean ec
 
 | <img width="906" alt="image" src="https://github.com/user-attachments/assets/f8a098a0-ef7a-447d-b468-f00954e95094"> | 
 |:--:| 
-| *Figure: Raw gappy chl-a estimates and gap-filled chl-a map.* |
+| *Raw gappy chl-a estimates and gap-filled chl-a map.* |
 
 Some parts of the world are more impacted by clouds than others. The Arabian Sea between East Africa and India is one of these regions. This region is home to two important and dynamic coast upwelling zones that drive large seasonal chlorophyll blooms that in turn drive the fisheries in this region and are critical for regional food security. The chlorophyll blooms happen during the summer monsoon when clouds are thick and winds drive coastal upwelling. Lack of data on chlorophyll intensity means poor spatial predictions of where fish, especially oil sardines, will be. Much of the fishing in this region is artisanal, on small boats that cannot go far. The Indian government produces fishing predictions based, in part, on Chl-a estimates. When it is cloudy, as it typically is during the monsoon, the Chl-a data are missing and fishing predictions are more uncertain. *Also EE Holmes is part of [a team](https://hackweek-itcoocean.github.io/2023-Hackbook/team.html) working on using machine-learning for fisheries forecasting in the Arabian Sea*.
 
 Convolutional neural networks are able to learn local patterns and features in images and use this information to create predictions. This type of model has been used successfully for other types of earth data gap-filling problems. Our work ([slideshow](https://docs.google.com/presentation/d/1etA0GIpuRJrahZnKkC36YrCN8A0dmnXPTETdv5v1m0E/edit?usp=sharing)) is testing a variety of different machine-learning models and comparing them to existing Chl-a gap-filling algorithms.  **For UWHackWeek 2024, we would like to add a new, experimental, type of CNN,  physics informed CNNs (PINNs) and LSTM PINNs, to our set of models. We also want to add more tests, visualizations, and notebooks to help others apply PINNs to their work.**
 
-<img width="623" alt="image" src="https://github.com/user-attachments/assets/4ea38c95-67e9-44ed-939f-3fb8ac6bcf54">
-Figure: Results from our U-Net model. Top left panel is the Copernicus Level-4 (science grade) Gap-filled Chl-a product and Top right panel is our U-Net gap-filled product using the Copernicus Level-3 (gappy) data plus co-located environmental variables.
+| <img width="623" alt="image" src="https://github.com/user-attachments/assets/4ea38c95-67e9-44ed-939f-3fb8ac6bcf54"> | 
+|:--:| 
+| *Results from our U-Net model. Top left panel is the Copernicus Level-4 (science grade) Gap-filled Chl-a product and Top right panel is our U-Net gap-filled product using the Copernicus Level-3 (gappy) data plus co-located environmental variables.* |
 
 ## Files
 
