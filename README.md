@@ -6,8 +6,9 @@ Neural network models for Chloraphyll-a gap-filling for remote-sensing products
 
 Chlorophyll is a key indicator of marine productivity and the health of ocean ecosystems. By estimating chlorophyll levels, scientists gauge the abundance of phytoplankton, which in turn reflects the overall productivity and food availability for many types of forage fish. Remote-sensing via ocean-color sensors allow one to derive an index of concentration of chlorophyll-a in the water based on the reflectance characteristics of plankton and allows us to use remote-sensing to monitor chlorophyll on a global scale. However clouds, especially, are a major problem for ocean color instruments. Clouds obstruct the view of the ocean surface, leading to gaps in the chlorophyll-a data. Close to 70% of the earth is covered by clouds at any time. Other problems, like sun-glint, also cause gaps but clouds are a very pervasive cause of gaps.  Gaps in ocean color measurements significantly hinder our ability to monitor ocean productivity and to create ‘production’ level products to help fisheries. 
 
-<img width="906" alt="image" src="https://github.com/user-attachments/assets/f8a098a0-ef7a-447d-b468-f00954e95094">
-Figure: Raw gappy chl-a estimates and gap-filled chl-a map.
+| <img width="906" alt="image" src="https://github.com/user-attachments/assets/f8a098a0-ef7a-447d-b468-f00954e95094"> | 
+|:--:| 
+| *Figure: Raw gappy chl-a estimates and gap-filled chl-a map.* |
 
 Some parts of the world are more impacted by clouds than others. The Arabian Sea between East Africa and India is one of these regions. This region is home to two important and dynamic coast upwelling zones that drive large seasonal chlorophyll blooms that in turn drive the fisheries in this region and are critical for regional food security. The chlorophyll blooms happen during the summer monsoon when clouds are thick and winds drive coastal upwelling. Lack of data on chlorophyll intensity means poor spatial predictions of where fish, especially oil sardines, will be. Much of the fishing in this region is artisanal, on small boats that cannot go far. The Indian government produces fishing predictions based, in part, on Chl-a estimates. When it is cloudy, as it typically is during the monsoon, the Chl-a data are missing and fishing predictions are more uncertain. 
 
