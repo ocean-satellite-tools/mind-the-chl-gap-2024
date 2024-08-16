@@ -2,7 +2,7 @@
 
 ### Neural network models for Chloraphyll-a gap-filling for remote-sensing products
 
-### Collaborators (SAFS Varanasi interns and mentor)
+### Collaborators
 
 * 2024 Shridhar Sinha, University of Washington, Paul G. Allen School of Computer Science & Engineering, ssinha19@uw.edu
 * 2024 Yifei Hang, University of Washington, Applied & Computational Mathematical Sciences, yhang2@uw.edu
