@@ -39,7 +39,7 @@ The overarching goal for this hackweek is to compare physics informed neural net
 #### Methods
 
 * Our plan is to use the DeepXDE library for PINN support along with a standard ConvLSTM architecture in Pytorch. The ConvLSTM is trained on the Level 3 data and the predictions are passed to a DeepONet from DeepXDE, this fits the predictions according to the PDE and conditions(subject to tuning) defined in the PINN. We have a basic notebook for this and a model that works "ok" but not better than our U-Net model.
-* We have a process for testing model performance using "fake" clouds (obtained from actual cloud cover elsewhere in the data) in order to get an estimate of the gap-filling error of the model. This allows us to compare performance to other models or to other gap-filled products (like the Copernicus Level-4 globColour product).
+* We have a process for testing model performance using "fake" clouds (obtained from actual cloud cover elsewhere in the data) in order to get an estimate of the gap-filling error of the model. This allows us to compare performance to other models or to other gap-filled products (like the Copernicus Level-4 globColour product). See below for the 'fake' cloud figure.
 * Data: We have a zarr file for the Indian Ocean and Bay of Bengal with 26 years of gridded data on Chl-a and many co-located environmental variables. It is ready for machine-learning models! 
 
 #### General goals 
@@ -70,3 +70,13 @@ TBD. Will add to the notebooks folder before the hackweek starts.
 - [DeepNetO](https://arxiv.org/abs/1910.03193)
 - [2023 machine-learning and upwelling paper](https://github.com/SAFS-Varanasi-Internship/Summer-2023/blob/main/Internship_Report.pdf)
 - [talk on 2024 summer results to date](https://docs.google.com/presentation/d/1etA0GIpuRJrahZnKkC36YrCN8A0dmnXPTETdv5v1m0E/present?usp=sharing)
+
+### Testing with fake clouds
+
+We use fake clouds to create a test set for each image. Each image has missing values from the real clouds and from our fake clouds. However the fake clouds have a real observation so we have a way to make predictions and then compare to the true observation. In order to create realistic clouds, we use the clouds from 10 days after the image as the additional fake clouds. Random missing pixels would not make good clouds since clouds are bigger than 1 pixel and the clouds have geometric shapes and gaps that would be hard to replicate with circles or squares. This shows an image with the real clouds in dark purple, fake clouds in green and the pixels we use as our observations in yellow.
+
+| <img width="934" alt="image" src="https://github.com/user-attachments/assets/004f26bd-205e-4dac-bc9f-5d9fbad38f91"> | 
+|:--:| 
+| *Both green + yellow have been observed for this image. For predicting, we treat the green as missing (fake clouds). We use the yellow as our observations that help inform our estimates. We predict the green and compare our predictions to the actual observations for the green pixels.* |
+
+
