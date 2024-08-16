@@ -30,7 +30,7 @@ Convolutional neural networks are able to learn local patterns and features in i
 
 | <img width="623" alt="image" src="https://github.com/user-attachments/assets/4ea38c95-67e9-44ed-939f-3fb8ac6bcf54"> | 
 |:--:| 
-| *Results from our U-Net model. Top left panel is the Copernicus Level-4 (science grade) Gap-filled Chl-a product and Top right panel is our U-Net gap-filled product using the Copernicus Level-3 (gappy) data plus co-located environmental variables.* |
+| *Results from our U-Net model. Top left panel is the Copernicus Level-4 (science grade) Gap-filled Chl-a globColour product and Top right panel is our U-Net gap-filled product using the Copernicus Level-3 (gappy) data plus co-located environmental variables. The gap-filling algorithms are very different. Our model's ability to match a science-grade product is very promising. Note, we do not know that the globColour product doing better at gap-filling since we have no way to produce estimates from the globColour algorithm and compare to non-missing pixels, i.e. we cannot do our 'fake' clouds tests.* |
 
 ### Overarching hackweek goals
 
