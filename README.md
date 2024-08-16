@@ -12,7 +12,7 @@
 
 2024 GeoSMART Hackweek team:
 
-* Shridhar Sinhar
+* Shridhar Sinha
 * come join!
 
 
