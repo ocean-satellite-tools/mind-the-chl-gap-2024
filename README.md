@@ -18,7 +18,7 @@
 
 ## Problem
 
-Chlorophyll is a key indicator of marine productivity and the health of ocean ecosystems. By estimating chlorophyll levels, scientists gauge the abundance of phytoplankton, which in turn reflects the overall productivity and food availability for many types of forage fish. Remote-sensing via ocean-color sensors allow one to derive an index of concentration of chlorophyll-a in the water based on the reflectance characteristics of plankton and allows us to use remote-sensing to monitor chlorophyll on a global scale. However clouds, especially, are a major problem for ocean color instruments. Clouds obstruct the view of the ocean surface, leading to gaps in the chlorophyll-a data. Close to 70% of the earth is covered by clouds at any time. Other problems, like sun-glint, also cause gaps but clouds are a very pervasive cause of gaps.  Gaps in ocean color measurements significantly hinder our ability to monitor ocean productivity and to create ‘production’ level products to help fisheries. 
+Chlorophyll is a key indicator of plankton abundance and thus marine productivity and the health of ocean ecosystems. By estimating chlorophyll levels, scientists gauge the abundance of phytoplankton, which in turn reflects the overall productivity and food availability for many types of forage fish. Estimation of plankton abundance is also critical for study of the earth carbon cycle since the ocean cover ca 70% of the earth and phytoplankton are the "forests" of the ocean---capturing and releasing carbon as they bloom and die. Remote-sensing via ocean-color sensors allow one to derive an index of concentration of chlorophyll-a in the water based on the reflectance characteristics of plankton and allows us to use remote-sensing to monitor chlorophyll on a global scale. However clouds, especially, are a major problem for ocean color instruments. Clouds obstruct the view of the ocean surface, leading to gaps in the chlorophyll-a data. Close to 70% of the earth is covered by clouds at any time. Other problems, like sun-glint, also cause gaps but clouds are a very pervasive cause of gaps.  Gaps in ocean color measurements significantly hinder our ability to monitor ocean productivity and to estimate the plankton contribution to the carbon cycle.
 
 | <img width="906" alt="image" src="https://github.com/user-attachments/assets/f8a098a0-ef7a-447d-b468-f00954e95094"> | 
 |:--:| 
@@ -50,8 +50,9 @@ The overarching goal for this hackweek is to compare physics informed neural net
 - write tutorials on PINNs to help others apply this new approach to their problems. PINNs are especially useful in fluid environments like the ocean.
 
 #### Other goals
-- right our zarr does not have turbidity or particulate matter or biogeochemical properties. It would be good to add those.
+- right now our zarr file does not have turbidity or particulate matter or biogeochemical properties. It would be good to add those.
 - we would like to add more Chl-a gapfree products to our dataset
+- try other gap-filling models
 - perform sensitivity analysis to quantify the importance of each co-located environmental variable. We have not done that yet for any of our models.
 - use a model without Chl-a as a predictor variable and create Chl-a predictions for 1972 to present.
 
