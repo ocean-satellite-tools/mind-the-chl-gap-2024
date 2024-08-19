@@ -13,6 +13,7 @@
 2024 GeoSMART Hackweek team:
 
 [Pitch slide](https://docs.google.com/presentation/d/1YfBLkspba2hRz5pTHG9OF3o9WHv-yNemZDq2QKFCme0/edit?usp=sharing)
+[Zotero library](https://www.zotero.org/groups/5595561/safs-interns-/library)
 
 * Shridhar Sinha
 * come join!
