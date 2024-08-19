@@ -57,11 +57,16 @@ The overarching goal for this hackweek is to compare physics informed neural net
 - use a model without Chl-a as a predictor variable and create Chl-a predictions for 1972 to present.
 
 ### Data
-[Our dataset](https://safs-varanasi-internship.github.io/indian-ocean-zarr/) is an analysis ready gridded zarr file for the Indian Ocean with:
-- Copernicus level 3 and level 4 Chl-a (globColour)
+[Our dataset](https://safs-varanasi-internship.github.io/indian-ocean-zarr/) is an analysis ready gridded zarr file for the Indian Ocean. Load with
+```
+import xarray as xr
+ds = xr.open_zarr("~/shared-public/mind_the_chl_gap/IO.zarr")
+```
+- Copernicus level 3 Chl-a (globColour) `ds["CHL_cmes-level3"]`
+- Copernicus level 4 Chl-a (globColour) `ds["CHL_cmes-gapfree"]`
 - Environmental variables: SST, E-W & N-S surface wind, surface air temp, E-W & N-S currents, sea surface anomaly, mean ocean mixed layer thickness, salinity, bathymetry, 
 - 0.25 degree grid. So large but that makes it easier to work with.
-- 1972 to 2022
+- 1972 to 2022 but Chl is 1997-2022
 
 ### Notebooks
 
