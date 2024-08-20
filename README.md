@@ -17,7 +17,12 @@
 [Google doc](https://docs.google.com/document/d/1ADjtPFMy5mDxWJ_jhFhUWaBvjSd54YAfcc3d6araPCs/edit?usp=sharing)
 
 * Shridhar Sinha
-* come join!
+* Ares
+* Gabe
+* Qi
+* Andy
+* Eli
+* Robin
 
 
 ## Problem
@@ -88,5 +93,29 @@ We use fake clouds to create a test set for each image. Each image has missing v
 | <img width="934" alt="image" src="https://github.com/user-attachments/assets/004f26bd-205e-4dac-bc9f-5d9fbad38f91"> | 
 |:--:| 
 | *Both green + yellow have been observed for this image. For predicting, we treat the green as missing (fake clouds). We use the yellow as our observations that help inform our estimates. We predict the green and compare our predictions to the actual observations for the green pixels.* |
+
+## Building the book
+
+### GitHub Action
+
+There is a GitHub Action that should build the book whenever there is a push to the `book` directory. If the Action does not run, then you will need to debug. Click on the Action that did not build and click on the part that had a problem.
+
+### Build locally and push to GitHub
+
+Do `pip install ghp-import` if needed. Then build book and push to GitHub. Set Pages to use `gh-pages` branch. These commands are run within the `book` directory.
+
+```
+cd /book
+jupyter-book build . --keep-going
+ghp-import -n -p -f _build/html
+```
+
+### Building Locally
+
+1. Open a terminal.
+2. Run `jupyter-book clean book/` to remove any existing builds
+3. Run `jupyter-book build book/`
+
+A fully-rendered HTML version of the book will be built in `book/_build/html/`.
 
 
