@@ -2,6 +2,8 @@
 
 ## Neural network models for Chloraphyll-a gap-filling for remote-sensing products
 
+### Authors: See individual notebooks
+
 2024 GeoSMART Hackweek:
 
 [Pitch slide](https://docs.google.com/presentation/d/1YfBLkspba2hRz5pTHG9OF3o9WHv-yNemZDq2QKFCme0/edit?usp=sharing)
