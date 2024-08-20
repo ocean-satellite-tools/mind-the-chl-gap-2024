@@ -32,7 +32,7 @@ ds = xr.open_zarr("~/shared-public/mind_the_chl_gap/IO.zarr")
 - 1972 to 2022 but Chl is 1997-2022
 
 
-### Collaborators
+### SAFS Varanasi Interns on this project
 
 * 2024 [Shridhar Sinha](https://www.linkedin.com/in/shridhar-sinha-5b7125184/), University of Washington, Paul G. Allen School of Computer Science & Engineering, ssinha19@uw.edu
 * 2024 Yifei Hang, University of Washington, Applied & Computational Mathematical Sciences, yhang2@uw.edu
