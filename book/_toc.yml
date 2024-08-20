@@ -8,5 +8,7 @@ root:
 chapters:
   - file: myst-markdown
     title: The title
-  - file: notebooks/ipynb-notebook
-  - file: notebooks/myst-notebook
+  - file: notebooks/IO_Zarr
+    title: Indian Ocean dataset
+  - file: notebooks/IO_Zarr_visualizations
+    title: IO dataset visualizations
