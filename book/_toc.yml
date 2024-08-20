@@ -2,9 +2,7 @@
 # Learn more at https://jupyterbook.org/customize/toc.html
 
 format: jb-book
-root: 
-  - file: intro.md
-    title: Home
+root: intro
 chapters:
   - file: myst-markdown
     title: The title
