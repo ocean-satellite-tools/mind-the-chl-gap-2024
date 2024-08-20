@@ -11,10 +11,10 @@ def is_in_ocean(lat, lon, coastline):
     return True
 
 
-def boundary_condition(x, on_boundary):
+def boundary_condition(x, coastline, on_boundary):
     lat = x[0]
     lon = x[1]
-    ocean_boundary = is_in_ocean(lat, lon)
+    ocean_boundary = is_in_ocean(lat, lon, coastline)
     return on_boundary and ocean_boundary
 
 

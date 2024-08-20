@@ -22,5 +22,5 @@ def pde(x, y):
         )
     )
 
-    residual = d2U_dlat2 + d2U_dlon2 + d2U_dt2 + rho
+    residual = d2U_dlat2 + d2U_dlon2 + d2U_dt2 - rho
     return residual
