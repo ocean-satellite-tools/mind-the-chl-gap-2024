@@ -1,23 +1,44 @@
 # mind-the-chl-gap
 
-### Neural network models for Chloraphyll-a gap-filling for remote-sensing products
+#### Neural network models for Chloraphyll-a gap-filling for remote-sensing products
 
-### Collaborators
+### 2024 GeoSMART Hackweek team:
+
+* Shridhar Sinha
+* Ares
+* Gabe
+* Qi
+* Andy
+* Eli
+* Robin
+
+### Hackweek notes
+
+Image to use for GPU if you need tensorflow `quay.io/pangeo/ml-notebook:2024.08.18`
+
+[Pitch slide](https://docs.google.com/presentation/d/1YfBLkspba2hRz5pTHG9OF3o9WHv-yNemZDq2QKFCme0/edit?usp=sharing)
+[Zotero library](https://www.zotero.org/groups/5595561/safs-interns-/library)
+[Google doc](https://docs.google.com/document/d/1ADjtPFMy5mDxWJ_jhFhUWaBvjSd54YAfcc3d6araPCs/edit?usp=sharing)
+
+The IO dataset is an analysis ready gridded zarr file for the Indian Ocean. It is in the Cryo hub. Load with
+```
+import xarray as xr
+ds = xr.open_zarr("~/shared-public/mind_the_chl_gap/IO.zarr")
+```
+- Copernicus level 3 Chl-a (globColour) `ds["CHL_cmes-level3"]`
+- Copernicus level 4 Chl-a (globColour) `ds["CHL_cmes-gapfree"]`
+- Environmental variables: SST, E-W & N-S surface wind, surface air temp, E-W & N-S currents, sea surface anomaly, mean ocean mixed layer thickness, salinity, bathymetry, 
+- 0.25 degree grid. So large but that makes it easier to work with.
+- 1972 to 2022 but Chl is 1997-2022
+
+
+### SAFS Varanasi Interns on this project
 
 * 2024 [Shridhar Sinha](https://www.linkedin.com/in/shridhar-sinha-5b7125184/), University of Washington, Paul G. Allen School of Computer Science & Engineering, ssinha19@uw.edu
 * 2024 Yifei Hang, University of Washington, Applied & Computational Mathematical Sciences, yhang2@uw.edu
 * 2023 [Jiarui Yu](https://www.linkedin.com/in/jiarui-yu-0b0ab522b/), University of Washington, Applied & Computational Mathematical Sciences
 * 2023 [Minh Phan](https://www.linkedin.com/in/minhphan03/), University of Washington, Applied & Computational Mathematical Sciences
 * mentor [Elizabeth Eli Holmes](https://eeholmes.github.io/), NOAA Fisheries, UW SAFS
-
-2024 GeoSMART Hackweek team:
-
-[Pitch slide](https://docs.google.com/presentation/d/1YfBLkspba2hRz5pTHG9OF3o9WHv-yNemZDq2QKFCme0/edit?usp=sharing)
-[Zotero library](https://www.zotero.org/groups/5595561/safs-interns-/library)
-[Google doc](https://docs.google.com/document/d/1ADjtPFMy5mDxWJ_jhFhUWaBvjSd54YAfcc3d6araPCs/edit?usp=sharing)
-
-* Shridhar Sinha
-* come join!
 
 
 ## Problem
@@ -60,18 +81,6 @@ The overarching goal for this hackweek is to compare physics informed neural net
 - perform sensitivity analysis to quantify the importance of each co-located environmental variable. We have not done that yet for any of our models.
 - use a model without Chl-a as a predictor variable and create Chl-a predictions for 1972 to present.
 
-### Data
-[Our dataset](https://safs-varanasi-internship.github.io/indian-ocean-zarr/) is an analysis ready gridded zarr file for the Indian Ocean. Load with
-```
-import xarray as xr
-ds = xr.open_zarr("~/shared-public/mind_the_chl_gap/IO.zarr")
-```
-- Copernicus level 3 Chl-a (globColour) `ds["CHL_cmes-level3"]`
-- Copernicus level 4 Chl-a (globColour) `ds["CHL_cmes-gapfree"]`
-- Environmental variables: SST, E-W & N-S surface wind, surface air temp, E-W & N-S currents, sea surface anomaly, mean ocean mixed layer thickness, salinity, bathymetry, 
-- 0.25 degree grid. So large but that makes it easier to work with.
-- 1972 to 2022 but Chl is 1997-2022
-
 ### Notebooks
 
 TBD. Will add to the notebooks folder before the hackweek starts.
@@ -89,4 +98,7 @@ We use fake clouds to create a test set for each image. Each image has missing v
 |:--:| 
 | *Both green + yellow have been observed for this image. For predicting, we treat the green as missing (fake clouds). We use the yellow as our observations that help inform our estimates. We predict the green and compare our predictions to the actual observations for the green pixels.* |
 
+## Building the book
+
+See the `README.md` in the `book` directory.
 

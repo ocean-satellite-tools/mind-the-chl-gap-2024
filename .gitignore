@@ -99,6 +99,7 @@ venv.bak/
 
 # mkdocs documentation
 /site
+/book/_build
 
 # mypy
 .mypy_cache/
@@ -109,3 +110,8 @@ venv.bak/
 *.hdf5
 *.nc
 *.tif
+
+# misc
+*.Rproj
+.Rproj.user
+.DS_Store
