@@ -20,6 +20,6 @@
 | [Minh Phan](https://www.linkedin.com/in/minhphan03/)  | University of Washington, Applied & Computational Mathematical Sciences | 2023 SAFS Varanasi Intern |  |
 | Ares | | geo-smart HackWeek 2024 | |
 | Gabe | | geo-smart HackWeek 2024 | |
-| Qi | | geo-smart HackWeek 2024 | |
+| Qi Ge | | geo-smart HackWeek 2024 | |
 | Andy Barrett | | geo-smart HackWeek 2024 | |
 | Robin Clancy | | geo-smart HackWeek 2024 | |

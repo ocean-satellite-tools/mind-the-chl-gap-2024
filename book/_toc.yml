@@ -4,9 +4,9 @@
 format: jb-book
 root: intro
 chapters:
-  - file: myst-markdown
-    title: The title
   - file: notebooks/IO_Zarr.md
     title: Indian Ocean dataset
+  - file: notebooks/background.md
+    title: Background
   - file: notebooks/IO_Zarr_visualizations.ipynb
     title: Data visualizations
