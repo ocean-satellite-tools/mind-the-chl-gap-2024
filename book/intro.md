@@ -1,27 +1,19 @@
-# Home
+# Project Title and Introduction
 
-## Neural network models for Chloraphyll-a gap-filling for remote-sensing products
+Provide a brief introduction.
 
-### Authors: See individual notebooks
-
-2024 GeoSMART Hackweek:
-
-[Pitch slide](https://docs.google.com/presentation/d/1YfBLkspba2hRz5pTHG9OF3o9WHv-yNemZDq2QKFCme0/edit?usp=sharing)
-[Zotero library](https://www.zotero.org/groups/5595561/safs-interns-/library)
-[Google doc](https://docs.google.com/document/d/1ADjtPFMy5mDxWJ_jhFhUWaBvjSd54YAfcc3d6araPCs/edit?usp=sharing)
-
+* Edit `_config.yml` with your title, authors, repo name etc.
+* Add new notebooks in the `notebooks` folder
+* Add those notebooks into `_toc.yml`
 
 ### Collaborators
 
-| Name | Affiliation | Role | email |
+
+| Name | Personal goals | Can help with | Role |
 | ------------- | ------------- | ------------- | ------------- |
-| [Elizabeth Eli Holmes](https://eeholmes.github.io/) | NOAA Fisheries, University of Washington SAFS| SAFS Varanasi mentor | eli.holmes@noaa.gov |
-[Shridhar Sinha](https://www.linkedin.com/in/shridhar-sinha-5b7125184/)  | University of Washington, Paul G. Allen School of Computer Science & Engineering | 2024 SAFS Varanasi Intern | ssinha19@uw.edu |
-| Yifei Hang  | University of Washington, Applied & Computational Mathematical Sciences | 2024 SAFS Varanasi Intern | yhang2@uw.edu |
-| [Jiarui Yu](https://www.linkedin.com/in/jiarui-yu-0b0ab522b/) | University of Washington, Applied & Computational Mathematical Sciences | 2023 SAFS Varanasi Intern |  |
-| [Minh Phan](https://www.linkedin.com/in/minhphan03/)  | University of Washington, Applied & Computational Mathematical Sciences | 2023 SAFS Varanasi Intern |  |
-| Ares | | geo-smart HackWeek 2024 | |
-| Gabe | | geo-smart HackWeek 2024 | |
-| Qi Ge | | geo-smart HackWeek 2024 | |
-| Andy Barrett | | geo-smart HackWeek 2024 | |
-| Robin Clancy | | geo-smart HackWeek 2024 | |
+| Katherine J. | I want to learn specific python libraries for working with these data  | I can help with understanding our dataset, programming in R  | Project Lead |
+| Rosalind F. | Practice leading a software project | machine learning and python (scipy, scikit-learn) | Project Lead |
+| Alan T. | learning about your dataset | GitHub, Jupyter, cloud computing | Project Helper |
+| Rachel C. | learn to use github, resolve merge conflicts | I am familiar with our dataset | Team Member  |
+| ... | ... | ... | ... |
+| ... | ... | ... | ... |
