@@ -1,26 +1,31 @@
 # Indian Ocean Dataset
 
+**Author:** Minh Phan (UW Varanasi intern 2023), Eli Holmes (NOAA/UW)
+
 Our Indian Ocean zarr dataset `INDIAN_OCEAN_025GRID_DAILY.zarr` or `IO.zarr` is a 1972-2022 blended dataset for the Arabian Sea and Bay of Bengal formated as a `.zarr` file, containing daily cleaned and interpolated data from variables across multiple sources, mostly from processed NASA/NOAA and Copernicus collections and the ERA5 reanalysis products.
 
 ### Variables
 
-* `adt`: sea surface height above geoid (m)
+* `adt`: sea surface height above geoid (m) (SL_TAC)
 * `air_temp`: air temperature at 2 meters above the surface (K), from 1979 (ERA5)
-* `mlotst`: mean ocean mixed layer thickness (m)
-* `sla`: sea level anomaly (m)
-* `so`: sea salinity concentration (m**-3 or PSL)
+* `mlotst`: mean ocean mixed layer thickness (m) (GLORY)
+* `sla`: sea level anomaly (m) (SL_TAC)
+* `so`: sea salinity concentration (m**-3 or PSL) (GLORY)
 * `sst`: sea surface temperature (K), from 1979 (ERA5)
-* `topo`: topography (m) (USGS)
-* `u_curr`: u-component of total surface currents (m/s)
-* `v_curr`: v-component of total surface currents (m/s)
-* `ug_curr`: u-component of geostrophic surface currents (m/s)
+* `topo`: topography (m) (SRTM30+)
+* `u_curr`: u-component of total surface currents (m/s) (OSCAR)
+* `v_curr`: v-component of total surface currents (m/s) (OSCAR)
+* `ug_curr`: u-component of geostrophic surface currents (m/s) (OSCAR)
 * `vg_curr`: v-component of geostrophic surface currents (m/s)
 * `u_wind`: u-component of surface wind (m/s), from 1979 (ERA5)
 * `v_wind`: v-component of surface wind (m/s), from 1979 (ERA5)
-* `curr_speed`: total current speed (m/s)
-* `curr_dir`: total current direction (degrees)
-* `wind_speed`: surface wind speed (m/s), computed from ERA5, from 1979
-* `wind_dir`: surface wind direction (degrees), computed from ERA5, from 1979
+
+### Derived variables
+
+* `curr_speed`: total current speed (m/s), computed from `u_curr` and `v_curr`
+* `curr_dir`: total current direction (degrees) (OSCAR), computed from `u_curr` and `v_curr`
+* `wind_speed`: surface wind speed (m/s), computed from `u_wind` and `v_wind`
+* `wind_dir`: surface wind direction (degrees), computed from `u_wind` and `v_wind`
 
 ### Chlorophyll variables
 
@@ -44,5 +49,9 @@ All variables have been broadcasted to fit into the temporal range we have. Ther
 
 * ERA5: These are hourly data that have been averaged to daily data, with the addition of some additional hourly wind layers.
 * GlobColour: CHL from the [GlobColour project](https://www.globcolour.info/) and accessed from Copernicus. There are two products. A Level 4 gap-filled product which is derived from a gappy Level 3 multi-sensor product. Gappy means still has cloud (etc) NaNs.
+* GLORY: Global Ocean Physics Reanalysis (product code name GLORYS12V1) from Copernicus Marine Environment Monitoring Service (CMEMS).
+* OSCAR: Ocean Surface Current Analyses Real-time (OSCAR) Version 2.0.
+* SL_TAC:  Sea Level TAC product Global Ocean Gridded L 4 Sea Surface Heights And Derived Variables Reprocessed 1993 Ongoing
+* SRTM30+: SRTM30+ Global 1-km Digital Elevation Model Version 11
 * CCI: Ocean Color CCI product that merges multiple sensors.
 * DINEOF: NOAA MSL12 Ocean Color, science quality, VIIRS multi-sensor (SNPP + NOAA-20), chlorophyll DINEOF gap-filled analysis
