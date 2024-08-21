@@ -3,7 +3,20 @@
 
 format: jb-book
 root: intro
-chapters:
-- file: myst-markdown
-- file: notebooks/ipynb-notebook
-- file: notebooks/myst-notebook
+parts:
+  - caption: Data
+    chapters:
+      - file: notebooks/IO_Zarr.md
+        title: Indian Ocean dataset
+      - file: notebooks/background.md
+        title: Background
+      - file: notebooks/IO_Zarr_visualizations.ipynb
+        title: Data visualizations
+  - caption: Models
+    chapters:
+      - file: notebooks/Prep_Data.ipynb
+        title: Prep_Data
+      - file: notebooks/CHL_prediction_CNN.ipynb
+        title: CNNs
+      - file: notebooks/CHL_prediction_ConvLSTM_.ipynb
+        title: ConvLSTM
