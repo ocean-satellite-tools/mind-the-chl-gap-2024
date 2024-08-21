@@ -6,7 +6,7 @@ import xarray as xr
 def load_and_preprocess_data():
     "TODO: Time slice variable?"
     print("Starting data load and preprocessing...")
-    zarr_ds = xr.open_zarr(store="/home/joyvan/shared/data/IO.zarr", consolidated=True)
+    zarr_ds = xr.open_zarr(store="~/shared-public/mind_the_chl_gap/IO.zarr", consolidated=True)
     zarr_ds = zarr_ds.sel(lat=slice(32, -11.75), lon=slice(42, 101.75))
 
     all_nan_dates = (

@@ -11,11 +11,14 @@ def is_in_ocean(lat, lon, coastline):
     return True
 
 
-def boundary_condition(x, coastline, on_boundary):
-    lat = x[0]
-    lon = x[1]
-    ocean_boundary = is_in_ocean(lat, lon, coastline)
-    return on_boundary and ocean_boundary
+# Currently not working because `coastline` i a global variable
+# and can't be an argument for the `boundary_condition` function
+# and python is weird
+# def boundary_condition(x, on_boundary):
+#     lat = x[0]
+#     lon = x[1]
+#     ocean_boundary = is_in_ocean(lat, lon, coastline)
+#     return on_boundary and ocean_boundary
 
 
 def get_xt_geom(lat, lon, time):
