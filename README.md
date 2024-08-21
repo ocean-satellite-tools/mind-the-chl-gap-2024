@@ -7,10 +7,10 @@
 * Shridhar Sinha
 * Ares
 * Gabe
-* Qi
-* Andy
-* Eli
-* Robin
+* Qi Ge
+* Andy Barrett
+* Eli Holmes
+* Robin Clancy
 
 ### Hackweek notes
 
