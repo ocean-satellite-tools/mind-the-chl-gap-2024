@@ -6,13 +6,11 @@ Everything is here.
 
 ### GitHub Action
 
-There is a GitHub Action that should build the book whenever there is a push to the `book` directory. 
-
-Set Pages to use a GitHub Action. If the Action does not run, then you will need to debug. Click on the Action that did not build and click on the part that had a problem.
+There is a GitHub Action that should build the book whenever there is a push to the `book` directory. If the Action does not run, then you will need to debug. Click on the Action that did not build and click on the part that had a problem.
 
 ### Build locally and push to GitHub
 
-Do `pip install ghp-import` if needed. Then build book and push to GitHub. Set Pages to use `gh-pages` branch (which is going to disable deploying from the GitHub Action). These commands are run within the `book` directory.
+Do `pip install ghp-import` if needed. Then build book and push to GitHub. Set Pages to use `gh-pages` branch. These commands are run within the `book` directory.
 
 ```
 cd /book
