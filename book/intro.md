@@ -10,8 +10,7 @@
 [Zotero library](https://www.zotero.org/groups/5595561/safs-interns-/library)
 [Google doc](https://docs.google.com/document/d/1ADjtPFMy5mDxWJ_jhFhUWaBvjSd54YAfcc3d6araPCs/edit?usp=sharing)
 
-
-### Collaborators
+### Collaborator Table
 
 | Name | Affiliation | Role | email |
 | ------------- | ------------- | ------------- | ------------- |
