@@ -1,0 +1,369 @@
+[33mcommit 3b2432d41cb1f9a57cce43ba446048c8838c6016[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m
+Author: Robin Clancy <clancyrobinp@gmail.com>
+Date:   Thu Aug 22 21:10:21 2024 +0000
+
+    Adding convergence calculation notebook in contributors/robin
+
+[33mcommit e5cb2bafd6e5eff823c1edfa47508e1814a3674c[m
+Merge: 86b230b 6e86889
+Author: Eli Holmes - NOAA <eli.holmes@noaa.gov>
+Date:   Wed Aug 21 11:09:46 2024 -0700
+
+    Merge pull request #2 from geo-smart/eli
+    
+    Add data prep table
+
+[33mcommit 6e86889b04efded12dbb01e3afdec4acb383f415[m
+Merge: 72bfea6 86b230b
+Author: Eli Holmes - NOAA <eli.holmes@noaa.gov>
+Date:   Wed Aug 21 11:09:34 2024 -0700
+
+    Merge branch 'main' into eli
+
+[33mcommit 72bfea6e028c8bd02a4c08c55896c734faebca10[m
+Author: Eli Holmes <eeholmes@uw.edu>
+Date:   Wed Aug 21 18:07:24 2024 +0000
+
+    Add data prep table
+
+[33mcommit 86b230bfcc7402b72c270eca761bbd14d5a3d004[m
+Merge: f835e43 40c7c20
+Author: Eli Holmes - NOAA <eli.holmes@noaa.gov>
+Date:   Wed Aug 21 10:21:27 2024 -0700
+
+    Merge pull request #1 from geo-smart/temp-branch
+    
+    Refactoring attempt
+
+[33mcommit 40c7c20a4677c63ec1a7f20ba99191923173483a[m
+Author: FishAres <aresf@uw.edu>
+Date:   Wed Aug 21 17:04:05 2024 +0000
+
+    minor fixes
+
+[33mcommit 5954e220a13d9ff156a301d775fe42610341f240[m
+Author: FishAres <aresf@uw.edu>
+Date:   Wed Aug 21 15:55:43 2024 +0000
+
+    refactoring v1
+
+[33mcommit 467b229e314bc5852df8c8b6c9480f850d7fe977[m
+Author: FishAres <aresf@uw.edu>
+Date:   Tue Aug 20 16:27:36 2024 -0700
+
+    i hate python
+
+[33mcommit 7ab52c7cd95d5562bcd90b0d75029ff48803c88b[m
+Author: FishAres <aresf@uw.edu>
+Date:   Tue Aug 20 16:05:55 2024 -0700
+
+    first refactor commit - not sure module imports are working
+
+[33mcommit e15bd608acb5b25255ebb47777caf8a6ad1ddc9f[m
+Author: FishAres <fiseraris@gmail.com>
+Date:   Tue Aug 20 16:04:53 2024 -0700
+
+    refactor commit 1 - still need to check if imports work
+
+[33mcommit 4e080d41061a5a4de73a6d68fd30604dfffd3dd7[m
+Author: FishAres <aresf@uw.edu>
+Date:   Tue Aug 20 17:23:48 2024 +0000
+
+    Fixed huge notebook file problem
+
+[33mcommit 67c229021a0333955a66b2714d6a53532a85fe7d[m
+Author: FishAres <aresf@uw.edu>
+Date:   Tue Aug 20 17:10:08 2024 +0000
+
+    Starting EDA and made a gif (11MB be careful)
+
+[33mcommit f835e43c8b23b909c89eec2fa3e03b0067923bbc[m
+Author: Eli Holmes <eeholmes@uw.edu>
+Date:   Wed Aug 21 16:15:47 2024 +0000
+
+    add last names
+
+[33mcommit 42ee9359e9e0e77d686a98a64311dfa48d76167e[m
+Author: Eli Holmes <eli.holmes@noaa.gov>
+Date:   Wed Aug 21 01:25:15 2024 +0000
+
+    working to get the CNN tutorial working
+
+[33mcommit eb556ef41ebc270b942d430b3bb93963e047ef5a[m
+Author: Eli Holmes <eli.holmes@noaa.gov>
+Date:   Wed Aug 21 00:48:51 2024 +0000
+
+    edits
+
+[33mcommit e34bb98d208b1c5f58c193ef7bad738f349c80fe[m
+Author: Eli Holmes <eli.holmes@noaa.gov>
+Date:   Tue Aug 20 23:58:08 2024 +0000
+
+    add header to lstm notebook
+
+[33mcommit a3e2090fb86167920661174d6a0cc6c25edd5622[m
+Author: Eli Holmes <eli.holmes@noaa.gov>
+Date:   Tue Aug 20 23:54:54 2024 +0000
+
+    add the CNN notebooks to toc
+
+[33mcommit af61e3b4cd313513eb7ece3a75330a3a55e4c7a8[m
+Author: Eli Holmes <eeholmes@uw.edu>
+Date:   Tue Aug 20 23:42:30 2024 +0000
+
+    add the CNN notebook
+
+[33mcommit 160a8d81260b84c363e40d525616d46c5581b06c[m
+Author: Eli Holmes <eli.holmes@noaa.gov>
+Date:   Tue Aug 20 23:02:53 2024 +0000
+
+    update the visualization notebook
+
+[33mcommit db4c8b2bc0e2b5a5a91fe225e5835dc6969a4b87[m
+Merge: da5086e 42b213f
+Author: Eli Holmes <eeholmes@uw.edu>
+Date:   Tue Aug 20 21:58:48 2024 +0000
+
+    add pinn
+
+[33mcommit da5086ed75a7616b5129b6b2edddf94c19f338f1[m
+Author: Eli Holmes <eeholmes@uw.edu>
+Date:   Tue Aug 20 21:58:33 2024 +0000
+
+    clean up
+
+[33mcommit 42b213ff62774424f1ad53fb1d9a8df93986ccad[m
+Merge: 927cb39 7fcdf82
+Author: Shridhar Sinha <ssinha19@cs.washington.edu>
+Date:   Tue Aug 20 14:20:09 2024 -0700
+
+    Merge branch 'main' of https://github.com/geo-smart/mind-the-chl-gap
+
+[33mcommit 927cb3943ab6fad1af6e54ae4e9a37594107ab07[m
+Author: Shridhar Sinha <ssinha19@cs.washington.edu>
+Date:   Tue Aug 20 14:20:02 2024 -0700
+
+    Added PINN Tutorial
+
+[33mcommit 7fcdf82d880c42c31ae9a8be398429e57e7082af[m
+Author: Eli Holmes <eeholmes@uw.edu>
+Date:   Tue Aug 20 20:09:11 2024 +0000
+
+    cleanup
+
+[33mcommit 3de9be153a31e0e057b7a953f7e605f816108c61[m
+Author: Eli Holmes <eeholmes@uw.edu>
+Date:   Tue Aug 20 20:01:42 2024 +0000
+
+    add background
+
+[33mcommit b28887600669880fd0355072c5e53896e3a7a315[m
+Author: Eli Holmes <eeholmes@uw.edu>
+Date:   Tue Aug 20 19:38:39 2024 +0000
+
+    try setting home
+
+[33mcommit d64f1fd3fe44bd3cfb340cc6bb8d7cc4d32aaad8[m
+Merge: 8d418d4 7a66fd0
+Author: Eli Holmes <eeholmes@uw.edu>
+Date:   Tue Aug 20 18:29:31 2024 +0000
+
+    ?
+
+[33mcommit 8d418d436af451e5aa34ff3c1c13acc8cfc3d660[m
+Author: Eli Holmes <eeholmes@uw.edu>
+Date:   Tue Aug 20 18:28:36 2024 +0000
+
+    change io_zarr to md
+
+[33mcommit 7a66fd0700531f29377cfa09b5527a9da9fbcc88[m
+Author: Eli Holmes - NOAA <eli.holmes@noaa.gov>
+Date:   Tue Aug 20 11:14:46 2024 -0700
+
+    Update README.md
+
+[33mcommit ed5f59e8d07ab05bddcab5ef53ef618a81dbbbf4[m
+Author: Eli Holmes - NOAA <eli.holmes@noaa.gov>
+Date:   Tue Aug 20 11:14:13 2024 -0700
+
+    Update README.md
+
+[33mcommit 31dc2baa9a732ff69d4a1173a5970d1e638193f5[m
+Author: Eli Holmes - NOAA <eli.holmes@noaa.gov>
+Date:   Tue Aug 20 10:47:18 2024 -0700
+
+    Update README.md
+
+[33mcommit 7643aff375fb0acf882fb0a44a8fb06459cd6835[m
+Author: Eli Holmes <eli.holmes@noaa.gov>
+Date:   Tue Aug 20 10:35:51 2024 -0700
+
+    zarr notebooks
+
+[33mcommit a6824982ac9080a68ebed078bc8b837e46d309cc[m
+Author: Eli Holmes <eli.holmes@noaa.gov>
+Date:   Tue Aug 20 10:20:35 2024 -0700
+
+    try adding title for home
+
+[33mcommit 8243a656ea9603b88f984b3e5355105d687ae367[m
+Author: Eli Holmes <eli.holmes@noaa.gov>
+Date:   Tue Aug 20 10:13:11 2024 -0700
+
+    add better instructions regarding the github action
+
+[33mcommit 042d5717a3dcab93b8325001da1d29fc18d4a053[m
+Author: Eli Holmes <eli.holmes@noaa.gov>
+Date:   Tue Aug 20 10:09:05 2024 -0700
+
+    add some notebooks
+
+[33mcommit 1a594ae2a1fc1683d68f027dd53d6a70352ecb1f[m
+Author: Eli Holmes <eli.holmes@noaa.gov>
+Date:   Tue Aug 20 09:41:22 2024 -0700
+
+    needed for the github action
+
+[33mcommit 74d826d883e4f8b9af1a7cb44fba02dc4f69e6b0[m
+Author: Eli Holmes <eli.holmes@noaa.gov>
+Date:   Tue Aug 20 09:33:58 2024 -0700
+
+    move book info to book/README.md
+
+[33mcommit ff7e77af6fac101a3c04e516790e7c7b71c1414a[m
+Author: Eli Holmes <eli.holmes@noaa.gov>
+Date:   Tue Aug 20 09:31:05 2024 -0700
+
+    add the book folder
+
+[33mcommit ee1f57f5fc9e2290a8be875850f4c08cfefe8e10[m
+Author: Shridhar Sinha <ssinha19@cs.washington.edu>
+Date:   Mon Aug 19 16:39:58 2024 -0700
+
+    Fixing compile error in PINN_plots
+    
+    messed up the last commit :p
+
+[33mcommit dffb37526ed9cef28b7e0a5a47b84fe423281344[m
+Author: Shridhar Sinha <ssinha19@cs.washington.edu>
+Date:   Mon Aug 19 16:36:22 2024 -0700
+
+    changed PINN_Plots
+    
+    removed unnecessary stuff
+
+[33mcommit cabf43a1dde1a02b761a7789a8bda550a447cee8[m
+Author: Shridhar Sinha <ssinha19@cs.washington.edu>
+Date:   Mon Aug 19 16:21:13 2024 -0700
+
+    Added Tutorials
+    
+    All tutorials(rough and undocumented, will update), Happy Hacking!
+
+[33mcommit bd69a40c366b38d7c3207b7af9bd57e47e73ad05[m
+Author: Eli Holmes - NOAA <eli.holmes@noaa.gov>
+Date:   Mon Aug 19 15:55:29 2024 -0700
+
+    Update README.md
+
+[33mcommit a51d2247d81dab134e341eefc16bfef133f27644[m
+Author: Eli Holmes - NOAA <eli.holmes@noaa.gov>
+Date:   Mon Aug 19 15:53:07 2024 -0700
+
+    Update README.md
+
+[33mcommit cd9999c96191e8a98453ae918de042b9182cfac9[m
+Author: Eli Holmes - NOAA <eli.holmes@noaa.gov>
+Date:   Mon Aug 19 13:39:25 2024 -0700
+
+    Update README.md
+
+[33mcommit 4a70e312b76ae13445a91ca33d85fca903f45df2[m
+Author: Eli Holmes - NOAA <eli.holmes@noaa.gov>
+Date:   Mon Aug 19 13:38:57 2024 -0700
+
+    Update README.md
+
+[33mcommit ce579a1b1a69661dfe484f37971cf46adc19ec3f[m
+Author: Eli Holmes - NOAA <eli.holmes@noaa.gov>
+Date:   Mon Aug 19 01:44:55 2024 -0700
+
+    Update README.md
+
+[33mcommit 8f53de1357dabe683842187469b089d6783b90fb[m
+Author: Eli Holmes - NOAA <eli.holmes@noaa.gov>
+Date:   Sun Aug 18 19:45:57 2024 -0700
+
+    Update README.md
+
+[33mcommit 980d1f40c021675e4dfdf075c95f6510afa9b900[m
+Author: Eli Holmes - NOAA <eli.holmes@noaa.gov>
+Date:   Fri Aug 16 16:36:28 2024 -0700
+
+    Update README.md
+
+[33mcommit fa291ca29bee6a27e7e08179fdb4298ea79f611f[m
+Author: Eli Holmes - NOAA <eli.holmes@noaa.gov>
+Date:   Fri Aug 16 16:25:05 2024 -0700
+
+    Update README.md
+
+[33mcommit 08b5798e75819bf531693910c830385b2739f04a[m
+Author: Eli Holmes - NOAA <eli.holmes@noaa.gov>
+Date:   Fri Aug 16 16:13:58 2024 -0700
+
+    Update README.md
+
+[33mcommit 0ba4fc7a8df394a36277cd14b52aa15dbb60a5f9[m
+Author: Eli Holmes - NOAA <eli.holmes@noaa.gov>
+Date:   Fri Aug 16 15:46:38 2024 -0700
+
+    Update README.md
+
+[33mcommit 93d0f11ca8e54a42bcc9faefb995693357bb81a7[m
+Author: Eli Holmes - NOAA <eli.holmes@noaa.gov>
+Date:   Fri Aug 16 15:46:24 2024 -0700
+
+    Update README.md
+
+[33mcommit bb9d682405f4794e5c570ff49bdefa07964c9309[m
+Author: Eli Holmes - NOAA <eli.holmes@noaa.gov>
+Date:   Fri Aug 16 15:45:34 2024 -0700
+
+    Update README.md
+
+[33mcommit f728d6f577cb153981274610828427daf4b10406[m
+Author: Eli Holmes - NOAA <eli.holmes@noaa.gov>
+Date:   Fri Aug 16 15:44:11 2024 -0700
+
+    Update README.md
+
+[33mcommit aec5323588faf6c02daf4beaf6a3a4fbffccccbb[m
+Author: Eli Holmes - NOAA <eli.holmes@noaa.gov>
+Date:   Fri Aug 16 15:36:30 2024 -0700
+
+    Update README.md
+
+[33mcommit 1ae8ad5c113b72aecec4812faff1d27d046a79e7[m
+Author: Eli Holmes - NOAA <eli.holmes@noaa.gov>
+Date:   Fri Aug 16 15:36:13 2024 -0700
+
+    Update README.md
+
+[33mcommit 63f5d9904847d1756bb02f7dead2e3b1b0fa9585[m
+Author: Eli Holmes - NOAA <eli.holmes@noaa.gov>
+Date:   Fri Aug 16 15:26:45 2024 -0700
+
+    Update README.md
+
+[33mcommit 56b9d3d1cd44d2bf60909afe911a8453926a1128[m
+Author: Eli Holmes - NOAA <eli.holmes@noaa.gov>
+Date:   Fri Aug 16 15:24:38 2024 -0700
+
+    Update README.md
+
+[33mcommit 14f24ae284ee4f098148ac36da7c70028f33f1bc[m
+Author: Eli Holmes - NOAA <eli.holmes@noaa.gov>
+Date:   Fri Aug 16 15:09:20 2024 -0700
+
+    Initial commit
