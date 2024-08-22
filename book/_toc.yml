@@ -28,4 +28,5 @@ parts:
         sections:
         - file: notebooks/CHL_prediction_ConvLSTM_.ipynb
           title: Fit ConvLSTM
+        - file: notebooks/silver_signal_noise.pdf
           
