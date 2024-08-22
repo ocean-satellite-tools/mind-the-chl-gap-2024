@@ -13,7 +13,7 @@ parts:
       - file: notebooks/IO_Zarr_visualizations.ipynb
         title: Data visualizations
   - caption: Models
-    chapters: Simple CNN
+    chapters: 
       sections:
       - file: notebooks/simple_cnn.md
         title: Background
@@ -21,7 +21,7 @@ parts:
         title: Prep_Data
       - file: notebooks/CHL_prediction_CNN.ipynb
         title: CNNs
-    chapters: ConvLSTM
+    chapters: 
       sections:
       - file: notebooks/CHL_prediction_ConvLSTM_.ipynb
         title: Fit ConvLSTM
