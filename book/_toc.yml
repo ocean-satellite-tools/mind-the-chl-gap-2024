@@ -15,10 +15,17 @@ parts:
       - file: ../notebooks/climatology_visualization.ipynb
         title: Exploring the Indian Ocean Dataset
   - caption: Models
-    chapters:
-      - file: notebooks/Prep_Data.ipynb
-        title: Prep_Data
-      - file: notebooks/CHL_prediction_CNN.ipynb
-        title: CNNs
-      - file: notebooks/CHL_prediction_ConvLSTM_.ipynb
+    chapters: 
+      - file: notebooks/simple_cnn.md
+        title: Simple CNN
+        sections:
+        - file: notebooks/Data_Prep.ipynb
+          title: - Prep_Data
+        - file: notebooks/CHL_prediction_CNN.ipynb
+          title: - Fit CNN
+      - file: notebooks/simple_cnn.md
         title: ConvLSTM
+        sections:
+        - file: notebooks/CHL_prediction_ConvLSTM_.ipynb
+          title: - Fit ConvLSTM
+
