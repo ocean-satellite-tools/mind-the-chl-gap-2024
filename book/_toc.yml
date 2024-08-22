@@ -28,4 +28,3 @@ parts:
         sections:
         - file: notebooks/CHL_prediction_ConvLSTM_.ipynb
           title: - Fit ConvLSTM
-
