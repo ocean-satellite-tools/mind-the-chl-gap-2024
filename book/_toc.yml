@@ -16,6 +16,8 @@ parts:
     chapters:
       - caption: Simple CNN
         sections:
+          - file: notebooks/simple_cnn.md
+            title: Background
           - file: notebooks/Prep_Data.ipynb
             title: Prep_Data
           - file: notebooks/CHL_prediction_CNN.ipynb
