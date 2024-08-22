@@ -21,7 +21,6 @@ parts:
         title: Prep_Data
       - file: notebooks/CHL_prediction_CNN.ipynb
         title: CNNs
-    chapters: 
       sections:
       - file: notebooks/CHL_prediction_ConvLSTM_.ipynb
         title: Fit ConvLSTM
