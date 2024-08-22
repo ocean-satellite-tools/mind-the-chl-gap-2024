@@ -12,7 +12,7 @@ parts:
         title: Background
       - file: notebooks/IO_Zarr_visualizations.ipynb
         title: Reading and Visualizing Data
-      - file: ../notebooks/climatology_visualization.ipynb
+      - file: notebooks/climatology_visualization.ipynb
         title: Exploring the Indian Ocean Dataset
   - caption: Models
     chapters: 
