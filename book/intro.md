@@ -14,7 +14,7 @@
 
 | Name | Affiliation | Role | email |
 | ------------- | ------------- | ------------- | ------------- |
-| [Elizabeth Eli Holmes](https://eeholmes.github.io/) | NOAA Fisheries, University of Washington SAFS| SAFS Varanasi mentor | eli.holmes@noaa.gov |
+| [Elizabeth Eli Holmes](https://eeholmes.github.io/) | NOAA Fisheries, University of Washington SAFS| SAFS Varanasi mentor | eli.holmes@noaa.gov [<i class="fa-brands fa-orcid"></i>](https://orcid.org/0000-0001-9128-8393) |
 [Shridhar Sinha](https://www.linkedin.com/in/shridhar-sinha-5b7125184/)  | University of Washington, Paul G. Allen School of Computer Science & Engineering | 2024 SAFS Varanasi Intern | ssinha19@uw.edu |
 | Yifei Hang  | University of Washington, Applied & Computational Mathematical Sciences | 2024 SAFS Varanasi Intern | yhang2@uw.edu |
 | [Jiarui Yu](https://www.linkedin.com/in/jiarui-yu-0b0ab522b/) | University of Washington, Applied & Computational Mathematical Sciences | 2023 SAFS Varanasi Intern |  |
