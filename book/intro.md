@@ -19,8 +19,8 @@
 | Yifei Hang  | University of Washington, Applied & Computational Mathematical Sciences | 2024 SAFS Varanasi Intern | yhang2@uw.edu |
 | [Jiarui Yu](https://www.linkedin.com/in/jiarui-yu-0b0ab522b/) | University of Washington, Applied & Computational Mathematical Sciences | 2023 SAFS Varanasi Intern |  |
 | [Minh Phan](https://www.linkedin.com/in/minhphan03/)  | University of Washington, Applied & Computational Mathematical Sciences | 2023 SAFS Varanasi Intern |  |
-| Ares | | geo-smart HackWeek 2024 | |
-| Gabe | | geo-smart HackWeek 2024 | |
+| [Ares Fisher](https://www.linkedin.com/in/aris-fiser/)| University of Washington, Paul G. Allen School of Computer Science & Engineering | geo-smart HackWeek 2024 | |
+| Gabriel Hesketh | University of Sourthern Mississippi | geo-smart HackWeek 2024 | |
 | Qi Ge | | geo-smart HackWeek 2024 | |
-| Andy Barrett | | geo-smart HackWeek 2024 | |
-| Robin Clancy | | geo-smart HackWeek 2024 | |
+| [Andy Barrett](https://nsidc.org/about/about-nsidc/what-we-do/our-people/andrew_barrett) | National Snow and Ice Data Center | geo-smart HackWeek 2024 | [<i class="fa-brands fa-orcid"></i>](https://orcid.org/0000-0003-4394-5445) |
+| [Robin Clancy](https://www.linkedin.com/in/robin-clancy/) | University of Oklahoma | geo-smart HackWeek 2024 | |
