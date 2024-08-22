@@ -15,11 +15,14 @@ parts:
   - caption: Models
     chapters: 
       - file: notebooks/simple_cnn.md
-        title: Background
+        title: Simple CNN
         sections:
         - file: notebooks/Data_Prep.ipynb
-          title: Prep_Data
+          title: - Prep_Data
         - file: notebooks/CHL_prediction_CNN.ipynb
-          title: CNNs
-      - file: notebooks/CHL_prediction_ConvLSTM_.ipynb
-        title: Fit ConvLSTM
+          title: - Fit CNN
+      - file: notebooks/simple_cnn.md
+        title: ConvLSTM
+        sections:
+        - file: notebooks/CHL_prediction_ConvLSTM_.ipynb
+          title: - Fit ConvLSTM
