@@ -23,8 +23,9 @@ parts:
           title: Prep_Data
         - file: notebooks/CHL_prediction_CNN.ipynb
           title: Fit CNN
-      - file: notebooks/simple_cnn.md
+      - file: notebooks/convlstm.md
         title: ConvLSTM
         sections:
         - file: notebooks/CHL_prediction_ConvLSTM_.ipynb
           title: Fit ConvLSTM
+          
