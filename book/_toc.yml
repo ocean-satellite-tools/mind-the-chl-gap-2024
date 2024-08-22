@@ -14,9 +14,15 @@ parts:
         title: Data visualizations
   - caption: Models
     chapters:
-      - file: notebooks/Prep_Data.ipynb
-        title: Prep_Data
-      - file: notebooks/CHL_prediction_CNN.ipynb
-        title: CNNs
-      - file: notebooks/CHL_prediction_ConvLSTM_.ipynb
-        title: ConvLSTM
+      - caption: Simple CNN
+        sections:
+          - file: notebooks/simple_cnn.md
+            title: Background
+          - file: notebooks/Prep_Data.ipynb
+            title: Prep_Data
+          - file: notebooks/CHL_prediction_CNN.ipynb
+            title: CNNs
+      - caption: ConvLSTM
+        sections:
+          - file: notebooks/CHL_prediction_ConvLSTM_.ipynb
+            title: Fit ConvLSTM
