@@ -14,13 +14,11 @@ parts:
         title: Data visualizations
   - caption: Models
     chapters: 
-      sections:
       - file: notebooks/simple_cnn.md
         title: Background
       - file: notebooks/Data_Prep.ipynb
         title: Prep_Data
       - file: notebooks/CHL_prediction_CNN.ipynb
         title: CNNs
-      sections:
       - file: notebooks/CHL_prediction_ConvLSTM_.ipynb
         title: Fit ConvLSTM
