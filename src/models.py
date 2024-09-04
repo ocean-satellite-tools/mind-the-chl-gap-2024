@@ -171,19 +171,22 @@ class CHL_CNN(nn.Module):
 
 
 class ConvBranchNet(nn.Module):
-    def __init__(self, input_channels, hidden_dim, num_basis_functions, image_size):
+    def __init__(
+        self, input_channels, hidden_dim, num_basis_functions, image_size, bn=False
+    ):
         super(ConvBranchNet, self).__init__()
         self.input_channels = input_channels
         self.hidden_dim = hidden_dim
         self.num_basis_functions = num_basis_functions
         self.image_size = image_size
+        self.bn = bn  # batchnorm
 
         # Convolutional layers
         self.conv_layers = nn.Sequential(
-            self._conv_block(input_channels, 32),
-            self._conv_block(32, 64),
-            self._conv_block(64, 128),
-            self._conv_block(128, 256),
+            self._conv_block(input_channels, 32, bn=self.bn),
+            self._conv_block(32, 64, bn=self.bn),
+            self._conv_block(64, 128, bn=self.bn),
+            self._conv_block(128, 256, bn=self.bn),
         )
         # Calculate the size of the flattened features after convolutions
         with torch.no_grad():
@@ -200,10 +203,10 @@ class ConvBranchNet(nn.Module):
             nn.Linear(256, num_basis_functions),
         )
 
-    def _conv_block(self, in_channels, out_channels):
+    def _conv_block(self, in_channels, out_channels, bn=False):
         return nn.Sequential(
             nn.Conv2d(in_channels, out_channels, kernel_size=3, stride=2, padding=1),
-            nn.BatchNorm2d(out_channels),
+            # nn.BatchNorm2d(out_channels),
             nn.ReLU(),
         )
 
@@ -216,19 +219,19 @@ class ConvBranchNet(nn.Module):
 
 
 class TrunkNet(nn.Module):
-    def __init__(self, input_dim, output_dim):
+    def __init__(self, input_dim, output_dim, act_fun=nn.ReLU):
         super(TrunkNet, self).__init__()
         self.net = nn.Sequential(
             nn.Linear(input_dim, 64),
-            nn.GELU(),
+            act_fun(),
             nn.Linear(64, 128),
-            nn.GELU(),
-            nn.Linear(128, 256),
-            nn.GELU(),
-            nn.Linear(256, 128),
-            nn.GELU(),
+            act_fun(),
+            nn.Linear(128, 128),
+            act_fun(),
+            nn.Linear(128, 128),
+            act_fun(),
             nn.Linear(128, 64),
-            nn.GELU(),
+            act_fun(),
             nn.Linear(64, output_dim),
         )
 
@@ -244,17 +247,24 @@ class DeepONet(nn.Module):
         hidden_dim,
         num_basis_functions,
         image_size,
+        trunk_act=nn.ReLU,
+        bn=False,
     ):
         super(DeepONet, self).__init__()
         self.branch = ConvBranchNet(
-            input_channels, hidden_dim, num_basis_functions, image_size
+            input_channels,
+            hidden_dim,
+            num_basis_functions,
+            image_size,
+            bn=bn,
         )
-        self.trunk = TrunkNet(trunk_input_dim, num_basis_functions)
+        self.trunk = TrunkNet(trunk_input_dim, num_basis_functions, act_fun=trunk_act)
 
     def forward(self, u, y):
         b = self.branch(u)  # Shape: (batch_size, num_basis_functions)
         t = self.trunk(y)  # Shape: (batch_size, num_sensors, num_basis_functions)
-        return torch.sum(b.unsqueeze(1) * t, dim=-1)  # Shape: (batch_size, num_sensors)
+        s = torch.sum(b.unsqueeze(1) * t, dim=-1)
+        return F.sigmoid(s)
 
 
 # class DeepONet(nn.Module):

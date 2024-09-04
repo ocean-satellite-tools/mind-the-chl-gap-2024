@@ -3,41 +3,7 @@ import torch.nn.functional as F
 import numpy as np
 from tqdm import tqdm
 
-
-def sample_sensors(target, num_sensors, seed=None):
-    """
-    Sample random locations from the target image to act as sensors.
-
-    :param target: Target chlorophyll values tensor (batch_size, height, width)
-    :param num_sensors: Number of sensor locations to sample
-    :param seed: Random seed for reproducibility
-    :return: Sampled sensor locations and their corresponding values
-    """
-    if seed is not None:
-        torch.manual_seed(seed)
-
-    batch_size, height, width = target.shape
-
-    # Sample random locations
-    y_coords = torch.randint(0, height, (batch_size, num_sensors))
-    x_coords = torch.randint(0, width, (batch_size, num_sensors))
-
-    # Get values at sampled locations
-    batch_indices = torch.arange(batch_size).unsqueeze(1).expand(-1, num_sensors)
-    sensor_values = target[batch_indices, y_coords, x_coords]
-
-    # Normalize coordinates to [-1, 1] range and stack them
-    normalized_coords = torch.stack(
-        [
-            2 * x_coords.float() / (width - 1) - 1,
-            2 * y_coords.float() / (height - 1) - 1,
-        ],
-        dim=-1,
-    )
-
-    # Return normalized coordinates with shape (batch_size, num_sensors, 2)
-    # and sensor values with shape (batch_size, num_sensors)
-    return normalized_coords, sensor_values
+from src.image_sampling_utils import *
 
 
 def advection_diffusion(yhat, y_coords, u, v, D):
@@ -62,40 +28,14 @@ def advection_diffusion(yhat, y_coords, u, v, D):
     return residual
 
 
-def sample_velocity_at_sensors(u, v, normalized_coords):
-    """
-    Sample the velocity fields u and v at the sensor locations.
-
-    :param u: Velocity field in the x direction (batch_size, height, width)
-    :param v: Velocity field in the y direction (batch_size, height, width)
-    :param normalized_coords: Normalized sensor coordinates (batch_size, num_sensors, 2)
-    :return: Sampled u and v values at the sensor locations
-    """
-    batch_size, height, width = u.shape
-    num_sensors = normalized_coords.shape[1]
-
-    # Convert normalized coordinates back to image coordinates
-    x_coords = ((normalized_coords[:, :, 0] + 1) * (width - 1) / 2).long()
-    y_coords = ((normalized_coords[:, :, 1] + 1) * (height - 1) / 2).long()
-
-    # Ensure indices are within bounds
-    x_coords = torch.clamp(x_coords, 0, width - 1)
-    y_coords = torch.clamp(y_coords, 0, height - 1)
-
-    # Sample u and v at the sensor locations
-    batch_indices = torch.arange(batch_size).unsqueeze(1).expand(-1, num_sensors)
-    u_samples = u[batch_indices, y_coords, x_coords]
-    v_samples = v[batch_indices, y_coords, x_coords]
-
-    return u_samples, v_samples
-
-
 def train_epoch(
     model,
     optimizer,
     criterion,
     train_loader,
     device,
+    water_mask,
+    sample_water_only=False,
     lambda_phys=0.1,
     D=0.1,
     num_sensors=100,
@@ -106,15 +46,20 @@ def train_epoch(
     pbar = tqdm(train_loader, desc=f"Training epoch {epoch+1}", leave=False)
     for x, y in pbar:
         x = x.to(device)
-        y_coords, y_targets = sample_sensors(y, num_sensors)
+        if sample_water_only:
+            y_coords, y_targets = sample_water_sensors(y, num_sensors, water_mask)
+        else:
+            y_coords, y_targets = sample_sensors(y, num_sensors)
+
         y_coords = y_coords.to(device)
         y_coords.requires_grad = True
+        u, v = sample_velocity_at_sensors(x[:, 7, :, :], x[:, 8, :, :], y_coords)
+
         y_targets = y_targets.to(device)
         optimizer.zero_grad()
         outputs = model(x, y_coords)
         rec_loss = criterion(outputs, y_targets)
 
-        u, v = sample_velocity_at_sensors(x[:, 7, :, :], x[:, 8, :, :], y_coords)
         residual = advection_diffusion(outputs, y_coords, u, v, D)
         loss_physics = residual.pow(2).mean()
 
@@ -138,7 +83,15 @@ def train_epoch(
 
 
 def validate(
-    model, criterion, val_loader, device, lambda_phys=0.1, D=0.1, num_sensors=100
+    model,
+    criterion,
+    val_loader,
+    device,
+    water_mask,
+    sample_water_only=False,
+    lambda_phys=0.1,
+    D=0.1,
+    num_sensors=100,
 ):
     model.eval()
     total_loss, physics_loss = 0.0, 0.0
@@ -147,7 +100,10 @@ def validate(
     pbar = tqdm(val_loader, desc="Validating", leave=False)
     for x, y in pbar:
         x = x.to(device)
-        y_coords, y_targets = sample_sensors(y, num_sensors)
+        if sample_water_only:
+            y_coords, y_targets = sample_water_sensors(y, num_sensors, water_mask)
+        else:
+            y_coords, y_targets = sample_sensors(y, num_sensors)
         y_coords = y_coords.to(device)
         y_coords.requires_grad = True
         y_targets = y_targets.to(device)
@@ -183,11 +139,15 @@ def train(
     train_loader,
     val_loader,
     device,
+    water_mask,
+    sample_water_only=False,
     num_epochs=100,
     scheduler=None,
     lambda_physics=0.1,
     D=0.1,
     num_sensors=100,
+    show_every=50,
+    plot_every=False,
 ):
     model.train()
     train_losses, val_losses = [], []
@@ -198,6 +158,8 @@ def train(
             criterion,
             train_loader,
             device,
+            water_mask,
+            sample_water_only=sample_water_only,
             lambda_phys=lambda_physics,
             D=D,
             num_sensors=num_sensors,
@@ -208,6 +170,8 @@ def train(
             criterion,
             val_loader,
             device,
+            water_mask,
+            sample_water_only=sample_water_only,
             lambda_phys=lambda_physics,
             D=D,
             num_sensors=num_sensors,
@@ -215,11 +179,13 @@ def train(
         train_losses.append(train_loss)
         val_losses.append(val_loss)
         train_loss_mn = np.mean(train_loss)
-        if (epoch + 1) % 10 == 0:
+        if (epoch + 1) % show_every == 0:
             print(
                 f"Epoch {epoch+1}/{num_epochs}, Train Loss: {train_loss_mn:.4f}, Val Loss: {val_loss:.4f}, Val phys. Loss: {val_phys:.4f}"
             )
+            # if plot_every:
+            #     plot_grid(x, y, batch_ind=3)
 
         if scheduler is not None:
-            scheduler.step()
+            scheduler.step(val_loss)
     return train_losses, val_losses
