@@ -2,7 +2,7 @@ import torch
 import torch.nn.functional as F
 import numpy as np
 from tqdm import tqdm
-
+import matplotlib.pyplot as plt
 from src.image_sampling_utils import *
 
 
@@ -150,6 +150,9 @@ def train(
     plot_every=False,
 ):
     model.train()
+    my_x, my_y = next(iter(val_loader))
+    my_x = my_x.to(device)
+    my_y = my_y.to(device)
     train_losses, val_losses = [], []
     for epoch in range(num_epochs):
         train_loss, phys_loss = train_epoch(
@@ -183,9 +186,48 @@ def train(
             print(
                 f"Epoch {epoch+1}/{num_epochs}, Train Loss: {train_loss_mn:.4f}, Val Loss: {val_loss:.4f}, Val phys. Loss: {val_phys:.4f}"
             )
-            # if plot_every:
-            #     plot_grid(x, y, batch_ind=3)
+            if plot_every:
+                output = sample_grid(model, my_x)
+                plot_grid_output(output, my_x, my_y, water_mask, batch_ind=0)
 
         if scheduler is not None:
             scheduler.step(val_loss)
     return train_losses, val_losses
+
+
+def sample_grid(model, x):
+    torch.cuda.empty_cache()
+    batch_size = x.shape[0]
+    height, width = (176, 240)
+    dev = x.device
+    grid_coords = get_grid_coords(batch_size, height, width).to(dev)
+
+    output = torch.zeros((batch_size, height, width)).to(dev)
+    chunk_size = 2000  # Adjust based on your GPU memory
+    for i in range(0, height * width, chunk_size):
+        chunk_coords = grid_coords[:, i : i + chunk_size, :]
+        with torch.no_grad():
+            chunk_output = model(x, chunk_coords)
+        output.view(batch_size, -1)[:, i : i + chunk_size] = chunk_output
+    torch.cuda.empty_cache()
+    return output.cpu().numpy()
+
+
+def plot_grid_output(
+    output, x, y, water_mask, batch_ind=2, savefig=False, savename=None
+):
+    batch_size = x.shape[0]
+    wm = (1.0 - water_mask).repeat(batch_size, 1, 1)
+    masked_output = wm * output
+    fig, axs = plt.subplots(1, 3, figsize=(12, 10))
+    axs[0].imshow(y.cpu()[batch_ind, :, :], clim=(0, 1))
+    axs[0].set_title("Original image")
+    axs[1].imshow(masked_output[batch_ind, :, :], clim=(0, 1))
+    axs[1].set_title("Model output sampled at grid (masked)")
+    axs[2].imshow(output[batch_ind, :, :], clim=(0, 1))
+    axs[2].set_title("Model Output sampled at grid (unnmasked)")
+
+    if savefig:
+        plt.savefig(f"plots/{savename}.png")
+
+    plt.show()

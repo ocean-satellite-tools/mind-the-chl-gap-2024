@@ -80,42 +80,46 @@ if __name__ == "__main__":
     my_x, my_y = next(iter(test_loader))
     my_x = my_x.to(device)
 
-    lambda_phys = 0.25
-    for D in [0.1, 0.01, 0.001, 0.0001]:
-        print(f"Training with D = {D}")
-        torch.random.manual_seed(0)
-        model = DeepONet(9, 2, 64, 150, (176, 240)).to(device)
-        opt = torch.optim.Adam(model.parameters(), lr=2e-4)
-        criterion = nn.MSELoss()
-        scheduler = ReduceLROnPlateau(
-            opt, mode="min", factor=0.6, patience=8, verbose=True
-        )
+    for lambda_phys in [0.0, 0.1, 0.25]:
+        if lambda_phys == 0.0:
+            D_values = [1.0]
+        else:
+            D_values = [1.0, 0.1, 0.01, 0.001, 0.0001]
+        for D in D_values:
+            print(f"Training with D = {D}, lambda_phys = {lambda_phys}")
+            torch.random.manual_seed(0)
+            model = DeepONet(9, 2, 64, 150, (176, 240)).to(device)
+            opt = torch.optim.Adam(model.parameters(), lr=2e-4)
+            criterion = nn.MSELoss()
+            scheduler = ReduceLROnPlateau(
+                opt, mode="min", factor=0.6, patience=8, verbose=True
+            )
 
-        torch.cuda.empty_cache()
-        num_sensors = 1500
-        n_epochs = 250
-        train_losses, test_losses = train(
-            model,
-            opt,
-            criterion,
-            train_loader,
-            test_loader,
-            device,
-            water_mask,
-            sample_water_only=True,
-            num_epochs=n_epochs,
-            lambda_physics=lambda_phys,
-            scheduler=scheduler,
-            num_sensors=num_sensors,
-            show_every=20,
-            D=D,
-        )
-        plot_grid_output(
-            model,
-            my_x,
-            my_y,
-            water_mask,
-            batch_ind=10,
-            savefig=True,
-            savename=f"DeepONet_v0_D_{D}",
-        )
+            torch.cuda.empty_cache()
+            num_sensors = 1500
+            n_epochs = 20
+            train_losses, test_losses = train(
+                model,
+                opt,
+                criterion,
+                train_loader,
+                test_loader,
+                device,
+                water_mask,
+                sample_water_only=True,
+                num_epochs=n_epochs,
+                lambda_physics=lambda_phys,
+                scheduler=scheduler,
+                num_sensors=num_sensors,
+                show_every=20,
+                D=D,
+            )
+            plot_grid_output(
+                model,
+                my_x,
+                my_y,
+                water_mask,
+                batch_ind=10,
+                savefig=True,
+                savename=f"DeepONet_v0_D_{D}_phys_l_{lambda_phys}",
+            )

@@ -172,7 +172,13 @@ class CHL_CNN(nn.Module):
 
 class ConvBranchNet(nn.Module):
     def __init__(
-        self, input_channels, hidden_dim, num_basis_functions, image_size, bn=False
+        self,
+        input_channels,
+        hidden_dim,
+        num_basis_functions,
+        image_size,
+        linear_act=nn.GELU,
+        bn=False,
     ):
         super(ConvBranchNet, self).__init__()
         self.input_channels = input_channels
@@ -180,13 +186,14 @@ class ConvBranchNet(nn.Module):
         self.num_basis_functions = num_basis_functions
         self.image_size = image_size
         self.bn = bn  # batchnorm
+        self.linear_act = linear_act
 
         # Convolutional layers
         self.conv_layers = nn.Sequential(
             self._conv_block(input_channels, 32, bn=self.bn),
             self._conv_block(32, 64, bn=self.bn),
             self._conv_block(64, 128, bn=self.bn),
-            self._conv_block(128, 256, bn=self.bn),
+            self._conv_block(128, 128, bn=self.bn),
         )
         # Calculate the size of the flattened features after convolutions
         with torch.no_grad():
@@ -197,9 +204,11 @@ class ConvBranchNet(nn.Module):
         # Fully connected layers for basis functions
         self.fc_layers = nn.Sequential(
             nn.Linear(self.flat_features, 512),
-            nn.ReLU(),
+            self.linear_act(),
             nn.Linear(512, 256),
-            nn.ReLU(),
+            self.linear_act(),
+            # nn.Linear(128, 128),
+            # self.linear_act(),
             nn.Linear(256, num_basis_functions),
         )
 
@@ -248,7 +257,9 @@ class DeepONet(nn.Module):
         num_basis_functions,
         image_size,
         trunk_act=nn.ReLU,
+        branch_linear_act=nn.GELU,
         bn=False,
+        onet_output_fun=F.sigmoid,
     ):
         super(DeepONet, self).__init__()
         self.branch = ConvBranchNet(
@@ -257,14 +268,17 @@ class DeepONet(nn.Module):
             num_basis_functions,
             image_size,
             bn=bn,
+            linear_act=branch_linear_act,
         )
         self.trunk = TrunkNet(trunk_input_dim, num_basis_functions, act_fun=trunk_act)
+
+        self.output_fun = onet_output_fun
 
     def forward(self, u, y):
         b = self.branch(u)  # Shape: (batch_size, num_basis_functions)
         t = self.trunk(y)  # Shape: (batch_size, num_sensors, num_basis_functions)
         s = torch.sum(b.unsqueeze(1) * t, dim=-1)
-        return F.sigmoid(s)
+        return self.output_fun(s)
 
 
 # class DeepONet(nn.Module):
