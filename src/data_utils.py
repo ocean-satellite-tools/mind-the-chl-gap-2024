@@ -1,6 +1,44 @@
 import numpy as np
 import xarray as xr
-from torch.utils.data import DataLoader, Dataset
+import torch
+from torch.utils.data import DataLoader, Dataset, random_split
+
+
+class CustomDataset(Dataset):
+    def __init__(self, inputs, labels):
+        self.inputs = inputs
+        self.labels = labels
+
+    def __len__(self):
+        return len(self.inputs)
+
+    def __getitem__(self, idx):
+        return self.inputs[idx], self.labels[idx]
+
+
+class XarrayDataset(Dataset):
+    "Doesn't quite work yet. This is for generating a dataset directly from a .zarr file."
+
+    def __init__(self, file_path, chunks="auto"):
+        self.ds = xr.open_zarr(file_path, chunks=chunks)
+        self.channels = list(self.ds.data_vars)
+        self.num_samples = self.ds.dims["time"]
+
+    def __len__(self):
+        return self.num_samples
+
+    def __getitem__(self, idx):
+        data = []
+        for channel in self.channels:
+            # Load a single time step for all channels
+            channel_data = self.ds[channel].isel(time=idx).values
+            data.append(channel_data)
+
+        # Stack channels along a new dimension
+        stacked_data = np.stack(data, axis=0)
+
+        # Convert to torch tensor
+        return torch.from_numpy(stacked_data).float()
 
 
 def load_data(data_dir, time_start="2018-01-01", time_end="2022-12-31"):
@@ -44,19 +82,7 @@ def stack_data(zarr_ds, variables, normalize=True, drop_nans=True):
     return stacked_data
 
 
-class CustomDataset(Dataset):
-    def __init__(self, inputs, labels):
-        self.inputs = inputs
-        self.labels = labels
-
-    def __len__(self):
-        return len(self.inputs)
-
-    def __getitem__(self, idx):
-        return self.inputs[idx], self.labels[idx]
-
-
-def get_data_loaders(zarr_ds, frac_train, batch_size=32):
+def gen_dataset(zarr_ds):
     variables = [
         "CHL_cmes-level3",
         "air_temp",
@@ -76,14 +102,23 @@ def get_data_loaders(zarr_ds, frac_train, batch_size=32):
     target = np.nan_to_num(target, nan=0.0)
     target = custom_normalize(target)
 
-    n_train = int(np.ceil(frac_train * xs.shape[0]))
-    train_inds = np.random.choice(xs.shape[0], n_train, replace=False)
-    test_inds = np.setdiff1d(range(xs.shape[0]), train_inds)
+    return CustomDataset(xs, target)
 
-    train_data = CustomDataset(xs[train_inds, :, :, :], target[train_inds, :, :])
-    test_data = CustomDataset(xs[test_inds, :, :, :], target[test_inds, :, :])
 
-    train_loader = DataLoader(train_data, batch_size=batch_size, shuffle=True)
-    test_loader = DataLoader(test_data, batch_size=batch_size, shuffle=True)
+def get_data_loaders(data: CustomDataset, frac_train, batch_size=32):
+    n_train = int(np.ceil(frac_train * len(data)))
+    n_test = len(data) - n_train
+    train_set, test_set = random_split(data, [n_train, n_test])
+
+    train_loader = DataLoader(train_set, batch_size=batch_size, shuffle=True)
+    test_loader = DataLoader(test_set, batch_size=batch_size, shuffle=True)
+    return train_loader, test_loader
+
+
+def data_loaders_from_zarr(zarr_ds, frac_train, batch_size=32):
+    data = gen_dataset(zarr_ds)
+    train_loader, test_loader = get_data_loaders(
+        data, frac_train, batch_size=batch_size
+    )
 
     return train_loader, test_loader
