@@ -1,4 +1,6 @@
-# mind-the-chl-gap
+# mind-the-chl-gap-2024
+
+This is the repo from the Geo-smart HackWeek 2024. The material is used in "mind-the-chl-gap" which is a series of tutorials on CNNs for the gap-filling and prediction problem.
 
 #### Neural network models for Chloraphyll-a gap-filling for remote-sensing products
 
